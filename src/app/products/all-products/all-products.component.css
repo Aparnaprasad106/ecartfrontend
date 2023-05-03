@@ -1,0 +1,11 @@
+.banner{
+    background-image: url('https://t4.ftcdn.net/jpg/03/20/46/13/360_F_320461388_5Snqf6f2tRIqiWlaIzNWrCUm1Ocaqhfm.jpg');
+    background-size: cover;
+}
+.card img{
+    transition: 3s;
+}
+.card:hover img{
+    transform: scale(1.1);
+    transition: 2s;
+}

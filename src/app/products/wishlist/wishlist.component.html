@@ -1,0 +1,50 @@
+<!-- wishlist design with no item -->
+<div *ngIf="allProducts.length==0" class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center mt-5">
+            <img width="400px" height="400px" src="https://media.istockphoto.com/id/861576608/vector/empty-shopping-bag-icon-online-business-vector-icon-template.jpg?s=612x612&w=0&k=20&c=I7MbHHcjhRH4Dy0NVpf4ZN4gn8FVDnwn99YdRW2x5k0=" alt="wishlist empty">
+            <h3 class="text-center text-danger">Your wishlist is Empty</h3>
+            <a class="btn btn-success ms-5 text-center" routerLink="">Add more</a>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+<!-- wishlist design with item -->
+<section class="py-5">
+    <div *ngIf="allProducts.length!=0" class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div  class="col mb-5" *ngFor="let product of allProducts">
+                <div class="card h-100 p-3">
+                    <!-- Product image-->
+                    <img  style="height: 200px;" class="card-img-top" [src]="product.image" [alt]="product.title" />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(0,17)}}..</h5>
+                            <!-- Product price-->
+                            {{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="d-flex justify-content-evenly">
+                        <!--item delete btn -->
+                            <button (click)="removeItem(product.id)" class="btn btn-danger mt-auto">
+                                <i class="fa-solid fa-heart-circle-xmark"></i>
+                            </button>
+                            <!-- add to cart btn -->
+                            <button (click)="addtocart(product)" class="btn btn-success ms-3">
+                                <i class="fa-solid fa-cart-plus text-light"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
